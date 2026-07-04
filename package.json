@@ -1,0 +1,17 @@
+{
+  "name": "claude-web-browser",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Desktop AI browser powered by Claude.",
+  "main": "src/main.cjs",
+  "scripts": {
+    "start": "electron .",
+    "dev": "electron ."
+  },
+  "dependencies": {
+    "electron": "^43.0.0"
+  },
+  "engines": {
+    "node": ">=18"
+  }
+}

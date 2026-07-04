@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Claude Browser</title>
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <div class="app">
+      <aside class="rail">
+        <button class="rail-button active" title="Browser" aria-label="Browser">⌁</button>
+        <button class="rail-button" title="Research" aria-label="Research">◧</button>
+        <button class="rail-button" title="Focus" aria-label="Focus">◎</button>
+      </aside>
+
+      <main class="workspace">
+        <header class="chrome">
+          <div class="tabs" id="tabs"></div>
+          <button class="icon-button" id="newTab" title="New tab" aria-label="New tab">+</button>
+        </header>
+
+        <section class="nav">
+          <button class="icon-button" id="back" title="Back" aria-label="Back">‹</button>
+          <button class="icon-button" id="forward" title="Forward" aria-label="Forward">›</button>
+          <button class="icon-button" id="reload" title="Reload" aria-label="Reload">↻</button>
+          <form class="omnibox" id="navForm">
+            <span class="site-dot"></span>
+            <input id="address" autocomplete="off" spellcheck="false" placeholder="Search or enter a URL" />
+            <button type="submit">Go</button>
+          </form>
+          <button class="soft-button" id="focusClaude">Claude</button>
+        </section>
+
+        <section class="stage">
+          <div class="browser-slot" id="browserSlot"></div>
+          <aside class="assistant">
+            <div class="assistant-head">
+              <div>
+                <span>Claude</span>
+                <h1>AI sidecar</h1>
+              </div>
+              <button class="mini-button" id="readPage">Read</button>
+            </div>
+
+            <div class="quick-grid">
+              <button data-prompt="Summarize the active page in five tight bullets and give me the key takeaway.">Summarize</button>
+              <button data-prompt="Extract tasks, names, dates, decisions, and open questions from the active page.">Extract</button>
+              <button data-prompt="Analyze the active page: what matters, what is weak, and what should I verify next?">Analyze</button>
+              <button data-prompt="Suggest three sharp follow-up searches based on the active page.">Searches</button>
+            </div>
+
+            <div class="conversation" id="conversation">
+              <div class="message assistant-message">
+                <strong>Ready.</strong>
+                <p>Browse normally. Claude can read the active tab and help you decide what to do next.</p>
+              </div>
+            </div>
+
+            <form class="composer" id="assistantForm">
+              <textarea id="assistantInput" rows="3" placeholder="Ask about this page..."></textarea>
+              <button type="submit">Send</button>
+            </form>
+          </aside>
+        </section>
+      </main>
+    </div>
+
+    <script src="./renderer.js"></script>
+  </body>
+</html>
